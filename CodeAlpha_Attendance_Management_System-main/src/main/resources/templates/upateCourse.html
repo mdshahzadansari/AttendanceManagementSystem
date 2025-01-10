@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Update Course</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<br><br>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<br>
+				<h1 class="text-center">Update Course </h1>
+				<div class="card-body">
+
+					<form th:action="@{/courses/update/{CourseID}(CourseID=${editCourse.CourseID})}"
+						th:object="${editCourse}" method="post">
+						<div class="form-group">
+							<label>Course Name</label>
+							<input type="text" name="Course Name" th:field="*{courseName}" class="form-control"
+								placeholder="Enter course name" />
+						</div>
+
+						<div class="form-group">
+							<label>instructor name</label>
+							<input type="text" name="Course instructor" th:field="*{instructor}" class="form-control"
+								placeholder="Enter course instructor name" />
+						</div>
+
+						<div class="form-group">
+							<label>Course Level</label>
+							<select th:field="*{CourseLevel}" class="form-control">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
+
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Update</button>
+						</div>
+
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

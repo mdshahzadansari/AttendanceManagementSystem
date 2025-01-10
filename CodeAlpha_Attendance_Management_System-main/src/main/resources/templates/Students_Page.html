@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Show Students</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+	<br><br>
+	<div class="container">
+		<div class="row">
+			<br>
+			<h1> Students List </h1>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{/student/add}" class="btn btn-primary btn-sm mb-3"> Add Student</a>
+			</div>
+		</div>
+
+		<table class="table table-striped table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th scope="col">Student ID</th>
+					<th scope="col">Student Name</th>
+					<th scope="col">Student Code</th>
+					<th scope="col">Student Email</th>
+					<th scope="col">Student Level</th>
+					<th scope="col">Record Course</th>
+					<th scope="col">Course Date</th>
+					<th scope="col">Student Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="student:${allStudent}">
+					<td th:text="${student.id}"></td>
+					<td th:text="${student.studentName}"></td>
+					<td th:text="${student.StudentCode}"></td>
+					<td th:text="${student.studentEmail}"></td>
+					<td th:text="${student.level}"></td>
+					<td
+						th:text="${student.studentCourses.isEmpty() ? 'Not added course yet' : student.studentCourses.iterator().next().course.courseName}">
+					</td>
+					<td
+						th:text="${student.studentCourses.isEmpty() ? '' : student.studentCourses.iterator().next().date}">
+					</td>
+					<td>
+						<a th:href="@{/student/updateStd/{id}(id=${student.id})}" class="btn btn-success">Update</a>
+
+						<a th:href="@{/student/deleteStd/{STDid}(STDid=${student.id})}"
+							class="btn btn-danger">Delete</a>
+					</td>
+
+				</tr>
+
+			</tbody>
+
+		</table>
+
+	</div>
+</body>
+
+</html>
