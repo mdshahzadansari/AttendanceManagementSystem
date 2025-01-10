@@ -1,0 +1,39 @@
+The Attendance Management System allows for efficient management of student records and their course enrollments. By navigating to the appropriate endpoints and using the provided forms, administrators can easily update and manage student data. This system is built with Spring MVC and Thymeleaf, ensuring a robust and user-friendly interface for all operations related to student and course management.
+
+System Components
+1. Entities
+- Student: Represents the student entity with attributes like ID, student code, name, email, level, and a list of associated courses.
+- Courses: Represents the course entity with attributes like course ID, name, level, instructor, and a list of students enrolled in the course.
+- StudentCourses_Date: Represents the relationship between students and courses, capturing the attendance date.
+
+2. Services
+- StudentService: Contains business logic for managing student entities, including creating, updating, and retrieving student details.
+- CoursesService: Contains business logic for managing course entities, including creating, updating, and retrieving course details.
+
+3. Repositories
+- StudentRepository: Data access layer for the Student entity.
+- CoursesRepository: Data access layer for the Courses entity.
+-StudentCourseDateRepository : Data access layer for the StudentCourses_Date entity.
+
+4. Controllers
+- StudentController: Handles HTTP requests related to student operations, such as displaying the edit form , updating student details and adding new student.
+- CourseController: Handles HTTP requests related to Course operations, such as displaying the edit form , updating Course details and adding new Course.
+- AttendanceController: Handles HTTP requests related to record course for student.
+
+5.How to Use the System
+-Home Page:
+Open your web browser and go to http://localhost:8085.
+You will be directed to the home page of the Attendance Management System.
+
+- Courses Page:
+From the home page, click on the "Manage" Button.  
+Here you can add, delete, or update courses.
+
+- Student Page:
+From the home page, click on the "Manage" Button.
+This page allows you to add, delete, or update student information.
+
+- Record Course Attendance Page:
+From the home page, click on the "Record"Button.
+This page displays all students and all courses.
+You can select a student and choose the course he attended.
